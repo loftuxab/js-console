@@ -9,7 +9,7 @@
     <parent>
         <groupId>de.fmaul</groupId>
         <artifactId>javascript-console</artifactId>
-        <version>0.7-SNAPSHOT</version>
+        <version>1.1.0</version>
     </parent>
 
     <!--
@@ -32,8 +32,7 @@
              Community versions are typically identified by major.minor.character (4.2.a),
              while Enterprise versions are identified by major.minor.digit (4.2.0)
         -->
-        <!--<alfresco.version>5.0.c</alfresco.version>-->
-
+        <alfresco.version>${alfresco.share.version}</alfresco.version>
         <!-- Defines the log level used in log4j.properties -->
         <app.log.root.level>WARN</app.log.root.level>
 
@@ -54,9 +53,19 @@
             <dependency>
                 <groupId>${alfresco.groupId}</groupId>
                 <artifactId>alfresco-platform-distribution</artifactId>
-                <version>${alfresco.version}</version>
+                <version>${alfresco.share.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.alfresco.surf</groupId>
+                <artifactId>spring-surf</artifactId>
+                <version>${dependency.surf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.alfresco.surf</groupId>
+                <artifactId>spring-surf-api</artifactId>
+                <version>${dependency.surf.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -66,12 +75,12 @@
         <dependency>
             <groupId>${alfresco.groupId}</groupId>
             <artifactId>share</artifactId>
-            <version>${alfresco.version}</version>
+            <version>${alfresco.share.version}</version>
             <classifier>classes</classifier>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.extensions.surf</groupId>
+            <groupId>org.alfresco.surf</groupId>
             <artifactId>spring-surf-api</artifactId>
             <scope>provided</scope>
         </dependency>
@@ -97,7 +106,7 @@
                 <dependency>
                     <groupId>${alfresco.groupId}</groupId>
                     <artifactId>share-enterprise</artifactId>
-                    <version>${alfresco.version}</version>
+                    <version>${alfresco.share.version}</version>
                     <classifier>classes</classifier>
                     <scope>provided</scope>
                 </dependency>
